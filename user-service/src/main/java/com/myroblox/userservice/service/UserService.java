@@ -1,7 +1,9 @@
 package com.myroblox.userservice.service;
 
+import com.myroblox.userservice.exception.UserServiceException;
 import com.myroblox.userservice.model.User;
 import com.myroblox.userservice.repository.UserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -42,17 +44,20 @@ public class UserService {
 
     public User findById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new UserServiceException(HttpStatus.NOT_FOUND,
+                        "Usuário com id: " + id + " não encontrado"));
     }
 
     public User findByUsername(String username) {
         return userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
+                .orElseThrow(() -> new UserServiceException(HttpStatus.NOT_FOUND,
+                        "Usuário com nome: " + username + " não encontrado"));
     }
 
     public User update(User user, Long id) {
         User existingUser = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new UserServiceException(HttpStatus.NOT_FOUND,
+                        "Usuário com id: " + id + " não encontrado"));
 
         existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());

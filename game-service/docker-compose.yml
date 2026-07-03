@@ -1,0 +1,15 @@
+services:
+  postgres-game:
+    image: postgres:16
+    container_name: game-service
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: myroblox_game
+      POSTGRES_USER: myroblox_game
+      POSTGRES_PASSWORD: myroblox123
+    volumes:
+      - postgres-game-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-game-data:

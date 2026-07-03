@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.myroblox</groupId>
-    <artifactId>user-service</artifactId>
-    <name>user-service</name>
+    <artifactId>game-service</artifactId>
+    <name>game-service</name>
     <version>0.0.1-SNAPSHOT</version>
     <description/>
     <url/>
@@ -49,6 +49,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
