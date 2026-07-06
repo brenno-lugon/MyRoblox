@@ -23,7 +23,7 @@ public class GameService {
     public Game create(Game game) {
 
         // VALIDAÇÃO PARA SABER SE O USUÁRIO EXISTE E SE O SERVIÇO ESTÁ ATIVO
-        UserResponse user = userServiceClient.findByUsername(game.getCreatorUsername());
+        userServiceClient.findByUsername(game.getCreatorUsername());
 
         if (game.getVisits() == null) {
             game.setVisits(0);
