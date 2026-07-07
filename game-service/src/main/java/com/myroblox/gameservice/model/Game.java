@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @Column(nullable = false, unique = false)
     private String name;
     private String description;
